@@ -14,3 +14,7 @@ User.destroy_all
     )
     puts "Created user: #{a.username}"
 end
+
+Household.destroy_all
+a = Household.create()
+puts "Created household_id: #{a.id}"
