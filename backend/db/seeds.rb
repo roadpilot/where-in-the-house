@@ -7,14 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-2.times do
-    a = User.create(
-    username: Faker::Internet.username,
-    password: "pw" 
-    )
-    puts "Created user: #{a.username}"
-end
+u1 = User.create(
+username: Faker::Internet.username,
+password: "pw" 
+)
+puts "Created user: #{u1.username}"
+
+u2 = User.create(
+username: Faker::Internet.username,
+password: "pw" 
+)
+puts "Created user: #{u2.username}"
 
 Household.destroy_all
-a = Household.create()
-puts "Created household_id: #{a.id}"
+h1 = Household.create()
+puts "Created household_id: #{h1.id}"
+
+HouseholdUser.destroy_all
+HouseholdUser.create(user_id: u1.id, household_id: h1.id)
+HouseholdUser.create(user_id: u2.id, household_id: h1.id)
