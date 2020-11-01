@@ -1,0 +1,10 @@
+<div id='items-index'>
+	<% @items.each do |item| %>
+	<h3>
+		<%= link_to item.display, item_path(item) %>
+	</h3>
+	<p>
+		<%#= item.name %>
+	</p>
+	<% end %>
+</div>
