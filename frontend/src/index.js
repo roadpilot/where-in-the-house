@@ -16,14 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function putAway(){
-        c.innerHTML = "putAway"
+        fetch(`${BASE_URL}/users/21`)
+        .then(function (response) {
+            // The API call was successful!
+            return response.text();
+        }).then(function (html) {
+            // This is the HTML from our response as a text string
+            // console.log(html);
+            c.innerHTML = html
+        }).catch(function (err) {
+            // There was an error
+            console.warn('Something went wrong.', err);
+        })
     }
     function search(){
         c.innerHTML = "search"
     }
     function browse(){
-        c.innerHTML = "browse"
     }
+
 });
 
 
