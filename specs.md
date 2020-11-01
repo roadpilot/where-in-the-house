@@ -53,8 +53,12 @@ Later on, you will be ready to create the database schema and application models
 
 ## Build resources
 rails g resource User username:string password_digest:string --no-test-framework
-rails g resource Item name:string description:string current_location:string proper_location:string household_id:integer last_update_user_id:integer --no-test-framework
+    seeds
+    test in console
 rails g resource Household user_id:integer --no-test-framework
+    seeds
+    test in console
+rails g resource Item name:string description:string current_location:string proper_location:string household_id:integer last_update_user_id:integer --no-test-framework
 rails g resource household_user user_id:integer household_id:integer --no-test-framework
 
 
