@@ -14,7 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function putAway(){
-        
+        console.log(this)
+    }
+    function search(){
+        console.log(this)
+    }
+    function browse(){
+        console.log(this)
     }
 });
 
