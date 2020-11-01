@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>WhereInTheHouse</title>
     <script src="src/index.js" charset="utf-8"></script>
-<style>
+    <link rel="stylesheet" href="assets/stylesheets/main.css" /><style>
 
 html {
     height: 100%;
@@ -28,12 +28,42 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000533', end
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+ .square-box{width:600px;}
+ .square-box .top{background:url('http://i.imgur.com/KRjgdhP.jpg') no-repeat 0 0; height:27px; float:left; width:100%;}
+ .square-box .content{background:url('http://i.imgur.com/zjNrRfD.jpg') repeat-y 0 0; min-height:100px; padding:0 5%;  float:left; width:90%;}
+ .square-box .bottom{background:url('http://i.imgur.com/mOXsXSQ.jpg') no-repeat 0 0;  height:27px;  float:left; width:100%;}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+  border-radius:4%; /*supported by all latest Browser*/
+  -moz-border-radius:4%; /*For older Browser*/
+  -webkit-border-radius:4%;/*For older Browser*/
+  background-color:whitesmoke;
+  width:30%;
+  height:40%;
+  position: fixed;
+  top: 75%;
+}
+
+
 </style>
     </head>
   <body>
-    <img class="centered" src="assets/7136420.png" style="height:70%; z-index:-2">
-    <img src="assets/5818457.png" style="background: transparent;height:50%; position:fixed; top:50%; left:10%">
-    <img src="assets/716228.png" style="background: transparent;height:50%; position:fixed; top:50%; right:10%">
+    <img class="centered" src="assets/6585761-1.png" style="height:70%; z-index:-2">
+    <img src="assets/text.png" style="background: transparent;height:50%; position:fixed; top:10%; left:10%">
+    <img src="assets/5818457.png" style="background: transparent;height:50%; position:fixed; top:50%; left:10%; z-index:2;">
+    <img src="assets/716228.png" style="background: transparent;height:50%; position:fixed; top:50%; right:10%; z-index:2;">
+
+<div class="shadow centered">
+ <div class="top"></div>
+ <div class="content">
+ Login form here...
+ </div>
+ <div class="bottom"></div>
+ </div>
   </body>
 </html>
 </html>
