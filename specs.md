@@ -11,7 +11,7 @@
     - there is a view to search for an item that has been put away
 - Model your domain. You need to know what the nouns in your project are - the objects in the 'world' of your application. It can be helpful to draw the relationships between your models.
     - User has a username and password
-    - Items has a name, description, current_location and proper_location
+    - Item has a name, description, current_location and proper_location
     - Household is a collection of users and items 
     - household_users will join users to households
 - Plan how your features will work.
@@ -28,60 +28,44 @@
     git push -u origin main
 **Setup PostgreSQL**
     sudo apt-get install postgresql
-    sudo service postgresql start
+    sudo service postgresql start (sudo service postgresql stop to stop)
     sudo -u postgres createuser --superuser term
     rake db:setup
 
 ## Domain Modeling
 
 As you turn your user stories into more clear technical specifications for features, you can start by modeling the data that your application will store and show. Identify the nouns in your stories, their properties, and their relationships.
-
-A description of the domain for the above stories might be:
-
-- A travel location has a name, a description, a location and an image URL
-- A review has a comment and a rating
-- A review belongs to one travel location (a travel location has many reviews)
-- A travel location has an average rating that is calculated by its aggregate review ratings
+    - User
+        has_many :household_users
+        has_many :households, through: :household_users
+        has_secure_password
+    - Item has a name, description, current_location and proper_location
+        belongs_to :household
+    - Household is a collection of users and items
+        has_many :items 
+        has_many :household_users
+        has_many :users, through: :household_users
+    - household_users will join users to households
+        belongs_to :user
+        belongs_to :household
 
 Later on, you will be ready to create the database schema and application models corresponding to this domain.
 
-## MVP ASAP
+## Build resources
+rails g resource User username:string password_digest:string --no-test-framework
+rails g resource Item name:string description:string current_location:string proper_location:string household_id:integer last_update_user_id:integer --no-test-framework
+rails g resource Household user_id:integer --no-test-framework
+rails g resource household_user user_id:integer household_id:integer --no-test-framework
 
+
+## MVP ASAP
 (Minimum Viable Product, As Soon As Possible)
 
-Building things is hard. It's very hard to predict what will be difficult in a project. Sometimes things that appear on the surface to be easy will end up taking hours of debugging.
-
-With that in mind, it's important to build a Minimum Viable Product (MVP) as quickly as possible. Instead of getting stuck on advanced features, start with a basic working version of the application, then steadily add features piece by piece.
+Instead of getting stuck on advanced features, start with a basic working version of the application, then steadily add features piece by piece.
 
 ## Build vertically, not horizontally
 
-It's easy to end up having to do lots of rework and fixing depending on how you order the things you build in your application, particularly if you build 'horizontally'.
-
-You can visualize all the parts you of an app you need to build as a grid, with the features along the x axis (columns) and the different layers of the stack along the y axis.
-
-|                    | View Location | Browse Locations | Edit Location | Add Review | Edit Review |
-| ------------------ | ------------- | ---------------- | ------------- | ---------- | ----------- |
-| Styling            |               |                  |               |            |             |
-| View Logic         |               |                  |               |            |             |
-| Data Fetching      |               |                  |               |            |             |
-| Controller actions |               |                  |               |            |             |
-| Seed Data          |               |                  |               |            |             |
-| Models             |               |                  |               |            |             |
-| Migrations         |               |                  |               |            |             |
-
-A strong temptation is build your project row-by-row. It _feels_ easy to start by writing all the migrations for all your models, then all the models, etc.
-
-**Do not do this!**
-
-If you try to build all your migrations, then all your models, then all your controllers, then all your fetch calls, then all your view logic, you will have a bad time. Inevitably, your view logic will end up requiring changes to the underlying layers, and you will write code that doesn't get used.
-
-Instead, build **vertically**, column-by-column. Write code for all the vertical layers involved in one feature before moving on to the next feature. That way, you'll minimize rewriting, and end up with working features without waste.
-
-The project process should look like:
-
-- Planning: Write down your ideas (use diagrams!)
-- Start by creating the frontend and backend directories
-- Build the **R** from CRUD for just one model, _vertically!_ That means one migration, one model, one controller action, one `fetch` call, and one DOM update. Add seed data and confirm that your code works by testing it visually.
+- Build the **R** from CRUD for just one model, _vertically!_ That means one migration, one model, one controller action, add seed data and confirm that your code works by testing it visually, then one `fetch` call, and one DOM update. 
 - Then, build the next CRUD action (maybe Create or Update), again building **vertically**.
 - Continue building features one by one, (_vertically!_)
 - Add feature by feature, not model by model or layer by layer.
