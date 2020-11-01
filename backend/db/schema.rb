@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2020_11_01_033310) do
   enable_extension "plpgsql"
 
   create_table "households", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
