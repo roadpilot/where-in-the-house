@@ -71,6 +71,31 @@ rails g resource Item name:string description:string current_location:string pro
 
 Instead of getting stuck on advanced features, start with a basic working version of the application, then steadily add features piece by piece.
 
+**START WITH LOGIN**
+
+- [X] 9. Create your `UsersController`
+
+- [X] 10. NOT APPLICABLE
+
+- [X] 11. Build routes and views for login
+  - Build your `get` login route + "login" view
+  - Build your `post` login route
+      - **Tip**: Here is where we authenticate the user and leverage the session hash to log them in!
+  - Build your `get users/:id` route + "show" view
+
+- [X] 12. Create your `ApplicationController` helper methods
+  - **Ask**: Why do we add this?
+  - `#logged_in?`: checks if the user is logged in
+  - `#current_user`: keeps track of the user currently logged in
+
+**MOVE ON TO SIGN UP**
+- [X] 13. Build routes and views for signup
+  - Build your `get` signup route + "signup" view
+  - Build your `post` signup route
+
+**WRAP UP WITH LOG OUT**
+- [X] 14. Build your `get` logout route
+
 ## Build vertically, not horizontally
 
 - Build the **R** from CRUD for just one model, _vertically!_ That means one migration, one model, one controller action, add seed data and confirm that your code works by testing it visually, then one `fetch` call, and one DOM update. 
