@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_033310) do
+ActiveRecord::Schema.define(version: 2020_11_01_040427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "household_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "household_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "households", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
