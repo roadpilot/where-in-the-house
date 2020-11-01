@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	console.log('index.js is loaded ...')
+    const c = document.getElementById('content')
+    const BASE_URL = "http://localhost:3000"
 
     document.getElementById("btn1").addEventListener("click", (e) => {
     putAway()
@@ -14,15 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function putAway(){
-        console.log(this)
+        c.innerHTML = "putAway"
     }
     function search(){
-        console.log(this)
+        c.innerHTML = "search"
     }
     function browse(){
-        console.log(this)
+        c.innerHTML = "browse"
     }
 });
 
-const BASE_URL = "http://localhost:3000"
 
