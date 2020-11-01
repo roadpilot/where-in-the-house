@@ -1,3 +1,6 @@
 class HouseholdSerializer < ActiveModel::Serializer
-  attributes :id, :user_id
+  attributes :id
+  has_many :items 
+  has_many :household_users
+  has_many :users, through: :household_users
 end
