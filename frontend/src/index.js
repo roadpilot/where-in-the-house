@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	console.log('index.js is loaded ...')
     const c = document.getElementById('content')
     const BASE_URL = "http://localhost:3000"
+    login()
 
     document.getElementById("btn1").addEventListener("click", (e) => {
     putAway()
@@ -14,6 +15,22 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn3").addEventListener("click", (e) => {
     browse()
     });
+
+    function login(){
+                fetch(`${BASE_URL}/user/login`)
+        .then(function (response) {
+            // The API call was successful!
+            return response.text();
+        }).then(function (html) {
+            // This is the HTML from our response as a text string
+            // console.log(html);
+            c.innerHTML = html
+            console.log(document.getElementById('loginForm'))
+        }).catch(function (err) {
+            // There was an error
+            console.warn('Something went wrong.', err);
+        })
+    }
 
     function putAway(){
         fetch(`${BASE_URL}/users/21`)
