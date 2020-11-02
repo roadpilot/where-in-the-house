@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function login(){
-                fetch(`${BASE_URL}/user/login`)
+                fetch(`${BASE_URL}/`)
         .then(function (response) {
             // The API call was successful!
             return response.text();
@@ -28,12 +28,38 @@ document.addEventListener("DOMContentLoaded", () => {
             let loginForm = document.getElementById('loginForm')
             loginForm.addEventListener("submit", (e) => {
                 e.preventDefault()
-                alert('test')
+                postLoginForm(loginForm)
             }); 
             console.log(loginForm)
         }).catch(function (err) {
             // There was an error
             console.warn('Something went wrong.', err);
+        })
+    }
+
+    function postLoginForm(form){
+        // console.log(form)
+        return fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                username: form.username.value,
+                password: form.password.value,
+            })
+        })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(object) {
+            console.log(object);
+            c.innerHTML = object
+            // document.body.innerHTML = object.id
+        })
+        .catch( function ( error ) {
+            // document.body.innerHTML = error.message
         })
     }
 
