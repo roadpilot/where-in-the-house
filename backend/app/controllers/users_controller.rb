@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
- 
+
+	def login
+	end
+
 	def index
 		@users = User.all
 		respond_to do |f|
