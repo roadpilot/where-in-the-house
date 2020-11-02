@@ -1,6 +1,6 @@
 <h1>Log in to WhereInTheHouse!</h1>
 <%#= form_tag('/login', method: :post) do %>
-<form id="loginForm">
+<form id="loginForm" method="post" action="/login">
   <div class="form-group">
     <%= label_tag(:username, "Your name:") %>
     <%= text_field_tag "username" %>
