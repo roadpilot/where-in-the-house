@@ -25,7 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // This is the HTML from our response as a text string
             // console.log(html);
             c.innerHTML = html
-            console.log(document.getElementById('loginForm'))
+            let loginForm = document.getElementById('loginForm')
+            loginForm.addEventListener("submit", (e) => {
+                e.preventDefault()
+                alert('test')
+            }); 
+            console.log(loginForm)
         }).catch(function (err) {
             // There was an error
             console.warn('Something went wrong.', err);
