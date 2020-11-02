@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>WhereInTheHouse</title>
     <script src="src/index.js" charset="utf-8"></script>
-    <link rel="stylesheet" href_="assets/stylesheets/main.css" /><style>
+    <link rel="stylesheet" href="assets/stylesheets/main.css" /><style>
 
 html {
     height: 100%;
@@ -51,10 +51,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000533', end
   -moz-border-radius:4%; /*For older Browser*/
   -webkit-border-radius:4%;/*For older Browser*/
   background-color:whitesmoke;
-  width:30%;
+  width:40%;
   height:40%;
   position: fixed;
   top: 75%;
+}
+
+.content{
+  margin-left:20px;
 }
 
 
@@ -62,10 +66,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000533', end
     </head>
   <body>
 <div style="width:100px">
-    <img class="centered" src="assets/6585761-1.png" style="height:70%; z-index:-2">
+    <img src="assets/6585761-1.png" style="position:fixed; right: 10%; height:80%; z-index:-2">
     <img src="assets/text.png" style="background: transparent;height:50%; position:fixed; top:10%; left:10%">
-    <img src="assets/5818457.png" style="background: transparent;height:50%; position:fixed; top:50%; left:10%; z-index:2;">
-    <img src="assets/7166228.png" style="background: transparent;height:50%; position:fixed; top:50%; right:10%; z-index:2;">
+    <img src="assets/5818457.png" style="background: transparent;height:50%; position:fixed; top:50%; left:0%; z-index:2;">
+    <img src="assets/7166228.png" style="background: transparent;height:50%; position:fixed; top:50%; right:0%; z-index:2;">
 
   <div class="navigation" style="min-width:200px">
     <input class="button" id="btn1" type="button" value="Put stuff away...">
