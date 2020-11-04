@@ -1,7 +1,7 @@
 console.log("adapter loaded")
 class ItemsAdapter {
     constructor(){
-        this.baseUrl = "http://localhost:3000/api/v1/items.json"
+        this.baseUrl = "http://localhost:3000/api/v1/items"
     }
 
     getItems(){
