@@ -28,7 +28,11 @@ Household.destroy_all
 # HouseholdUser.create(user_id: u2.id, household_id: h1.id)
 
 Item.destroy_all
-Item.create(household_id: h1.id, name: "sunglasses", description: "brown with camo temples", current_location: "closet shelf", proper_location: "")
-Item.create(household_id: h1.id, name: "", description: "it's blue and looks like a can opener", current_location: "kitchen utensil drawer", proper_location: "")
-Item.create(household_id: h1.id, name: "glass canning jar", description: "", current_location: "basement storage room shelf", proper_location: "")
-Item.create(household_id: h1.id, name: "flat head screw driver", description: "", current_location: "", proper_location: "tool box")
+# Item.create(household_id: h1.id, name: "sunglasses", description: "brown with camo temples", current_location: "closet shelf", proper_location: "")
+# Item.create(household_id: h1.id, name: "", description: "it's blue and looks like a can opener", current_location: "kitchen utensil drawer", proper_location: "")
+# Item.create(household_id: h1.id, name: "glass canning jar", description: "", current_location: "basement storage room shelf", proper_location: "")
+# Item.create(household_id: h1.id, name: "flat head screw driver", description: "", current_location: "", proper_location: "tool box")
+Item.create(name: "sunglasses", description: "brown with camo temples", current_location: "closet shelf", proper_location: "")
+Item.create(name: "", description: "it's blue and looks like a can opener", current_location: "kitchen utensil drawer", proper_location: "")
+Item.create(name: "glass canning jar", description: "", current_location: "basement storage room shelf", proper_location: "")
+Item.create(name: "flat head screw driver", description: "", current_location: "", proper_location: "tool box")
