@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>WhereInTheHouse</title>
-    <script src="src/index.js" charset="utf-8"></script>
     <link rel="stylesheet" href="assets/stylesheets/main.css" /><style>
+    <link rel="stylesheet" href="assets/stylesheets/styles.css" /><style>
 
 html {
     height: 100%;
@@ -77,11 +77,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000533', end
     <input class="button" id="btn3" type="button" value="Browse for stuff...">
 </div>
     <div class="shadow centered">
-      <div class="content-div" id="content" style="overflow-y:auto">
+      <div class="content-div" id="items-container" style="overflow-y:auto">
       Login form here...
       </div>
+    <div id="new-item-container">
+      <form id="new-item-form">
+        <input type="text" name="item-body" id="new-item-body">
+        <input type="submit" value="Save item">
+      </form>
+    </div>
+    <div id="items-content">
+      <div id="items-container">
+
+      </div>
+      <div id="item-show">
+
+      </div>
+    </div>
   </div>
 </div>
-  </body>
+  <script type="text/javascript" src="src/components/item.js"></script>
+  <script type="text/javascript" src="src/adapters/services.js"></script>
+  <script type="text/javascript" src="src/components/items.js"></script>
+  <script type="text/javascript" src="src/components/app.js"></script>
+  <script type="text/javascript" src="src/index.js"></script>
+
+</body>
 </html>
 </html>
