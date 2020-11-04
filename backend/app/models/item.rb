@@ -1,3 +1,3 @@
 class Item < ApplicationRecord
-    belongs_to :household
+    # belongs_to :household
 end
