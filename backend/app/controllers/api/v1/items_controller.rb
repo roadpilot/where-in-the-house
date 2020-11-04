@@ -11,4 +11,10 @@ class Api::V1::ItemsController < ApplicationController
 	def create
 		binding.pry
 	end
+
+	private
+
+	def item_params
+    	params.require(:item).permit(:name, :description, :current_location, :proper_location)
+	end
 end
