@@ -7,4 +7,8 @@ class Api::V1::ItemsController < ApplicationController
 		# 	f.json {render json: @items}
 		# end
     end
+
+	def create
+		binding.pry
+	end
 end
