@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class Api::V1::ItemsController < ApplicationController
     def index
 		@items = Item.all
 		respond_to do |f|

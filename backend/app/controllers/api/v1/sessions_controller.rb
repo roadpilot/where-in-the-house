@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::V1::SessionsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     # ROOT STARTS AT LOGIN SCREEN
