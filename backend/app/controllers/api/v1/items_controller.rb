@@ -9,7 +9,15 @@ class Api::V1::ItemsController < ApplicationController
     end
 
 	def create
-		binding.pry
+		# binding.pry
+		# item = Item.new(item_params)
+		item = Household.last.items.build(item_params)
+		if item.save
+			render json: item
+		else
+			render json: {errors: item.errors.full_messages}
+		end
+		# binding.pry
 	end
 
 	private
