@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
 namespace :api do
   namespace :v1 do
-    resources :items
-    resources :household_users
-    resources :households
-    resources :users
+    resources :items, only: [:index]
+    # resources :household_users
+    # resources :households
+    # resources :users
     root 'sessions#new'
     get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
