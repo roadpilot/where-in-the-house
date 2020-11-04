@@ -10,7 +10,7 @@ class Items{
 
     initBindingsAndEventListeners() {
     this.itemsForm = document.getElementById('new-item-form')
-    this.itemInput = document.getElementById('new-item-body')
+    this.itemInput = document.getElementById('new-item-name')
     this.itemsNode = document.getElementById('items-container')
     this.itemShowNode = document.getElementById('item-show')
     this.body = document.querySelector('body')
@@ -48,9 +48,10 @@ class Items{
 
   handleAddItem() {
     event.preventDefault()
-    const body = this.itemInput.value
+    const name = this.itemInput.value
+    console.log(name)
     this.adapter
-      .createItem(body)
+      .createItem(name)
       .then(itemJSON => this.items.push(new Item(itemJSON)))
       .then(this.render.bind(this))
       .then(() => (this.itemInput.value = ''))

@@ -7,6 +7,17 @@ class ItemsAdapter {
     getItems(){
         return fetch(this.baseUrl).then(res => res.json()) 
     }
+
+    createItem(name) {
+    const itemCreateParams = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name })
+    }
+    return fetch(this.baseUrl, itemCreateParams).then(res => res.json())
+  }
 }
 
 adapter = new ItemsAdapter()
