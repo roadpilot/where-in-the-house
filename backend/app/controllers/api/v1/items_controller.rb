@@ -10,8 +10,8 @@ class Api::V1::ItemsController < ApplicationController
 
 	def create
 		# binding.pry
-		# item = Item.new(item_params)
-		item = Household.last.items.build(item_params)
+		item = Item.new(item_params)
+		# item = Household.last.items.build(item_params)
 		if item.save
 			render json: item
 		else
