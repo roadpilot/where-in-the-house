@@ -52,7 +52,7 @@ class Items{
     console.log(name)
     this.adapter
       .createItem(name)
-      .then(itemJSON => this.items.push(new Item(itemJSON)))
+      .then(itemJSON => this.items.unshift(new Item(itemJSON)))
       .then(this.render.bind(this))
       .then(() => (this.itemInput.value = ''))
   }
