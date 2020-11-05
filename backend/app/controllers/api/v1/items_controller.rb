@@ -20,9 +20,19 @@ class Api::V1::ItemsController < ApplicationController
 		# binding.pry
 	end
 
+	def update
+		@item = Item.find(params[:id])
+		@item.update(item_params)
+		if @item.save
+			render json: @item, status: :accepted
+		else
+			render json: { errors: @item.errors.full_messages }, status: :unprocessible_entity
+		end
+	end
+
 	private
 
 	def item_params
-    	params.require(:item).permit(:name, :description, :current_location, :proper_location)
+    	params.permit(:name, :description, :current_location, :proper_location)
 	end
 end
