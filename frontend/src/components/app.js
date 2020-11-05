@@ -35,7 +35,7 @@ class App {
   }
 
   handleFormSubmit(e) {
-    debugger
+    // debugger
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
     const item = Item.findById(id);
