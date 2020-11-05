@@ -1,2 +1,5 @@
-console.log("index loaded")
-const app = new App()
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new App()
+  app.attachEventListeners()
+  app.api.fetchItems().then(app.index)
+});
