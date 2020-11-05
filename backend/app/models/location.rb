@@ -1,3 +1,3 @@
 class Location < ApplicationRecord
-    # belongs_to :household
+    belongs_to :item
 end
