@@ -34,7 +34,7 @@ class Item {
         <textarea>${this.description}</textarea>
       </p>
       <button type='submit'>Save Item</button>
-      <button id='cancel'>Cancel</button>
+      <button type='button' id='cancel'>Cancel</button>
     </form>
   `;
   }

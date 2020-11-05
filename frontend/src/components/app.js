@@ -8,7 +8,7 @@ class App {
   }
 
   attachEventListeners() {
-    document.querySelector('#notes-list').addEventListener('click', this.handleEditClick);
+    document.querySelector('#items-list').addEventListener('click', this.handleEditClick);
     document.querySelector('#update').addEventListener('submit', this.handleFormSubmit);
   }
 
@@ -21,9 +21,9 @@ class App {
   }
 
   addItems() {
-    document.querySelector('#notes-list').innerHTML = '';
+    document.querySelector('#items-list').innerHTML = '';
     Item.all.forEach(
-      item => (document.querySelector('#notes-list').innerHTML += item.renderListItem())
+      item => (document.querySelector('#items-list').innerHTML += item.renderListItem())
     );
   }
 
@@ -31,9 +31,11 @@ class App {
     const id = parseInt(e.target.dataset.id);
     const item = Item.findById(id);
     document.querySelector('#update').innerHTML = item.renderUpdateForm();
+    document.getElementById('cancel').addEventListener('click', this.hideForm);
   }
 
   handleFormSubmit(e) {
+    debugger
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
     const item = Item.findById(id);
@@ -48,7 +50,8 @@ class App {
       document.querySelector('#update').innerHTML = ""
     })
   }
-  hideForm() {
+  hideForm(e) {
+      e.preventDefault();
       document.querySelector('#update').innerHTML = ""
   }
 }
