@@ -8,18 +8,25 @@ https://www.youtube.com/watch?v=Q5R7HSqdGFk&feature=youtu.be
 rails: https://learn.co/study-groups/attend/0d55e61b9c58286c
 js: https://learn.co/study-groups/attend/476ab225759cb7af
 
+
 PART 1 — Planning and Building a Rails API
 https://www.youtube.com/watch?v=Q5R7HSqdGFk&feature=youtu.be
+
 PART 2 — Routes, Controllers, Serializers
 https://www.youtube.com/watch?v=sLrFiwhMPZU&feature=youtu.be                             
+
 PART 3 — Events, Fetch, and DOM Manipulation using a Rails API
 https://www.youtube.com/watch?v=2xvuGWI3H58&feature=youtu.be                                                        
+
 PART 4 — OOJS Refactor 
 https://www.youtube.com/watch?v=oUiLxmgOvJ8&feature=youtu.be                                                             
+
 PART 5 — Complex Database Relationships
 https://www.youtube.com/watch?v=a3gGu-g7ty8               
+
 PART 6 — Intro to Implementing Bootstrap
 https://www.youtube.com/watch?v=CSDHsmNrCEc&feature=youtu.be                                  
+
 PART 7 — Implementing Auth in JS Project using JWT
 https://www.youtube.com/watch?v=3PCeETWv_D4&feature=youtu.be
 
@@ -27,4 +34,7 @@ Here’s Cernan’s build videos:
 Part 1: https://www.youtube.com/watch?v=seCqoRBCq9U&feature=youtu.be
 Part 2: https://www.youtube.com/watch?v=O0fjpcF6s60&feature=youtu.be
 Part 3: https://www.youtube.com/watch?v=1ql2-kIQz_M&feature=youtu.be
+
+How to start PostreSQL server:
+sudo service postgresql start
 
