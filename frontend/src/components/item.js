@@ -13,7 +13,7 @@ class Item {
     if (disp==""){disp = "unknown, but..."}
     let detail_str =
       `<details>
-      <summary>${disp}<button data-id=${this.id} data-type='update'>edit</button><input type="button" value="add" data-type="create"></summary>`
+      <summary>${disp}<button data-id=${this.id} data-type='update'>edit</button></summary>`
       if (this.description !=""){
         detail_str +=         
         `It's been described as:<br>
