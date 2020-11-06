@@ -39,7 +39,7 @@ class App {
     }
     if(e.target && e.target.id=='createBtn'){
       // const id = 0
-      const item = new Item({id:0,name:"",description:"",locations:[]});
+      const item = new Item({id:0,name:"",description:"",locations:[{name:""}]});
       document.querySelector('#items-list').style.display="none";
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
@@ -57,7 +57,10 @@ class App {
     const name = document.getElementById('update-name').value;
     const description = document.getElementById('update-description').value;
     const location = document.getElementById('update-location').value;
-
+    if (location == ""){
+      alert("Location can't be blank")
+    }
+    else{
     const bodyJSON = { name, description, location };
     debugger
     this.api.createItem(item.id, bodyJSON).then(updatedItem => {
@@ -70,6 +73,7 @@ class App {
       this.hideForm(e)
       this.index
     })
+    }
   }
 
   hideForm(e) {
