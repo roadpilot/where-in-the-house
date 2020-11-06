@@ -3,15 +3,12 @@ class App {
     this.api = new Api();
     this.index = this.index.bind(this);
     this.addItems = this.addItems.bind(this);
-    // this.handleEditClick = this.handleEditClick.bind(this);
-    // this.handleAddClick = this.handleAddClick.bind(this);
     this.handleBtnClick = this.handleBtnClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   attachEventListeners() {
     document.querySelector('#update').addEventListener('submit', this.handleFormSubmit);
-    // document.querySelector('#items-list').addEventListener('click', this.handleEditClick);
     document.querySelector('#items-list').addEventListener('click', this.handleBtnClick);
     document.querySelector('#createBtn').addEventListener('click', this.handleBtnClick);
     document.querySelector('#indexBtn').addEventListener('click', this.handleBtnClick);
@@ -48,13 +45,6 @@ class App {
     if(e.target && e.target.id=='indexBtn'){
       this.index
     }
-  }
-
-  handleEditClick(e) {
-    const id = parseInt(e.target.dataset.id);
-    const item = Item.findById(id);
-    document.querySelector('#update').innerHTML = item.renderUpdateForm();
-    document.getElementById('cancel').addEventListener('click', this.hideForm);
   }
 
   handleFormSubmit(e) {
