@@ -39,7 +39,7 @@ a.save
 a = Item.create(name: "", description: "it's blue and looks like a can opener", current_location: "kitchen utensil drawer", proper_location: "")
 a.locations.build(name: "kitchen utensil drawer")
 a.save
-a = Item.create(name: "glass canning jar", description: "", current_location: "basement storage room shelf", proper_location: "")
+a = Item.create(name: "glass canning car", description: "", current_location: "basement storage room shelf", proper_location: "")
 a.locations.build(name: "basement shelf")
 a.save
 a = Item.create(name: "flat head screw driver", description: "", current_location: "", proper_location: "tool box")
