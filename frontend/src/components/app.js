@@ -46,7 +46,7 @@ class App {
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
     if(e.target && e.target.id=='indexBtn'){
-      alert(e.target)
+      this.index
     }
   }
 
