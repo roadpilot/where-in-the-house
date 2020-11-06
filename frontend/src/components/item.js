@@ -50,9 +50,10 @@ class Item {
   `;
   }
 
-    update({ name, description }) {
+    update({ name, description, locations }) {
     this.name = name;
     this.description = description;
+    this.locations = locations
   }
 
 
