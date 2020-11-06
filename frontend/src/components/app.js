@@ -39,10 +39,11 @@ class App {
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
     const item = Item.findById(id);
-    const name = e.target.querySelector('input').value;
-    const description = e.target.querySelector('textarea').value;
+    const name = document.getElementById('update-name').value;
+    const description = document.getElementById('update-description').value;
+    const location = document.getElementById('update-location').value;
 
-    const bodyJSON = { name, description };
+    const bodyJSON = { name, description, location };
     this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
       const item = Item.findById(updatedItem.id);
       item.update(updatedItem);

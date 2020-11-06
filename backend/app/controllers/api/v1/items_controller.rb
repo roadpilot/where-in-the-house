@@ -21,6 +21,7 @@ class Api::V1::ItemsController < ApplicationController
 	end
 
 	def update
+		binding.pry
 		@item = Item.find(params[:id])
 		@item.update(item_params)
 		if @item.save
@@ -33,6 +34,6 @@ class Api::V1::ItemsController < ApplicationController
 	private
 
 	def item_params
-    	params.permit(:name, :description, :current_location, :proper_location)
+    	params.permit(:name, :description, :location)
 	end
 end

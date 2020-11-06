@@ -32,14 +32,18 @@ class Item {
   renderUpdateForm() {
     return `
     <form data-id=${this.id}>
-      <label>Title</label>
-      <p>
-        <input type="text" value="${this.name}" />
-      </p>
-      <label>Content</label>
-      <p>
-        <textarea>${this.description}</textarea>
-      </p>
+      <label>Name
+        <input type="text" id='update-name' value="${this.name}">
+      </label><br>
+      <label>How would you describe it?<br>
+        <textarea id='update-description'>${this.description}</textarea>
+      </label><br>
+      <label>Where are you putting it?<br>
+        <input list='locax' id='update-location'>${this.description}
+        <datalist id='locax'>
+        <option>in the garbage</option
+        </datalist>
+      </label><br>
       <button type='submit'>Save Item</button>
       <button type='button' id='cancel'>Cancel</button>
     </form>
