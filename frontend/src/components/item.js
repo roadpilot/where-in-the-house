@@ -39,7 +39,7 @@ class Item {
         <textarea id='update-description'>${this.description}</textarea>
       </label><br>
       <label>Where are you putting it?<br>
-        <input list='locax' id='update-location'>${this.description}
+        <input list='locax' id='update-location'>
         <datalist id='locax'>
         <option>in the garbage</option
         </datalist>

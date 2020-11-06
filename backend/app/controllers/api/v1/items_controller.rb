@@ -21,9 +21,12 @@ class Api::V1::ItemsController < ApplicationController
 	end
 
 	def update
-		binding.pry
+		# binding.pry
 		@item = Item.find(params[:id])
-		@item.update(item_params)
+		@item.update(item_params.except(:location))
+		if item_params[:location].strip != ""
+			@item.locations.find_or_create_by(name: item_params[:location])
+		end 
 		if @item.save
 			render json: @item, status: :accepted
 		else
