@@ -33,22 +33,24 @@ class App {
     if(e.target && e.target.dataset.type=='update'){
       const id = parseInt(e.target.dataset.id);
       const item = Item.findById(id);
+      document.querySelector('#items-list').style.display="none";
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
     if(e.target && e.target.id=='createBtn'){
-      const id = 0
-      const item = new Item({id:0,name:"",description:""});
+      // const id = 0
+      const item = new Item({id:0,name:"",description:"",locations:[]});
+      document.querySelector('#items-list').style.display="none";
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
     if(e.target && e.target.id=='indexBtn'){
+      this.hideForm(e)
       this.index
     }
   }
 
   handleFormSubmit(e) {
-    // debugger
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
     const item = Item.findById(id);
@@ -57,6 +59,7 @@ class App {
     const location = document.getElementById('update-location').value;
 
     const bodyJSON = { name, description, location };
+    debugger
     this.api.createItem(item.id, bodyJSON).then(updatedItem => {
     // this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
 // debugger
@@ -64,11 +67,15 @@ class App {
       item.update(updatedItem);
       this.addItems();
       document.querySelector('#update').innerHTML = ""
+      this.hideForm(e)
+      this.index
     })
   }
+
   hideForm(e) {
       e.preventDefault();
       document.querySelector('#update').innerHTML = ""
+      document.querySelector('#items-list').style.display="";
   }
 }
 

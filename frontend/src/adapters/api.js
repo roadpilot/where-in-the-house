@@ -16,10 +16,7 @@ class Api {
   }
 
   createItem(id, body) {
-    let a = this.action(`${this.baseUrl}/items`, body, "POST")
-    console.log(a)
-    // debugger
-    return a
+    return this.action(`${this.baseUrl}/items`, body, "POST")
   }
 
   action(url, body, method) {
