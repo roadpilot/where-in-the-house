@@ -1,12 +1,7 @@
 class Api::V1::ItemsController < ApplicationController
     def index
-		# @items = Item.all.order(created_at: :desc)
-		@items = Item.all
+		@items = Item.all.order(created_at: :asc)
 		render json: @items
-		# respond_to do |f|
-		# 	f.html {render :index}
-		# 	f.json {render json: @items}
-		# end
     end
 
 	def create
