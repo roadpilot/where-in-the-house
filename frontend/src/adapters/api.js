@@ -12,14 +12,22 @@ class Api {
   }
 
   updateItem(id, body) {
-    return this.patch(`${this.baseUrl}/items/${id}`, body)
+    return this.action(`${this.baseUrl}/items/${id}`, body, "PATCH")
   }
 
-  patch(url, body) {
+  createItem(id, body) {
+    let a = this.action(`${this.baseUrl}/items`, body, "POST")
+    console.log(a)
+    // debugger
+    return a
+  }
+
+  action(url, body, method) {
     return fetch(url, {
-      method: 'PATCH',
+      method: method,
       headers: this.headers,
       body: JSON.stringify(body),
     }).then(res => res.json())
   }
+
 }

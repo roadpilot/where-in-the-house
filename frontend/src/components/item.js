@@ -5,7 +5,7 @@ class Item {
     this.description = data.description;
     this.locations = data.locations;
     // debugger
-    Item.all.push(this);
+    Item.all.unshift(this);
   }
 
   renderListItem() {
@@ -30,6 +30,27 @@ class Item {
   }
 
   renderUpdateForm() {
+    return `
+    <form data-id=${this.id}>
+      <label>Name
+        <input type="text" id='update-name' value="${this.name}">
+      </label><br>
+      <label>How would you describe it?<br>
+        <textarea id='update-description'>${this.description}</textarea>
+      </label><br>
+      <label>Where are you putting it?<br>
+        <input list='locax' id='update-location'>
+        <datalist id='locax'>
+        <option>in the garbage</option
+        </datalist>
+      </label><br>
+      <button type='submit'>Save Item</button>
+      <button type='button' id='cancel'>Cancel</button>
+    </form>
+  `;
+  }
+
+  renderCreateForm() {
     return `
     <form data-id=${this.id}>
       <label>Name

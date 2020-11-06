@@ -1,6 +1,7 @@
 class Api::V1::ItemsController < ApplicationController
     def index
-		@items = Item.all.order(created_at: :desc)
+		# @items = Item.all.order(created_at: :desc)
+		@items = Item.all
 		render json: @items
 		# respond_to do |f|
 		# 	f.html {render :index}
@@ -10,12 +11,15 @@ class Api::V1::ItemsController < ApplicationController
 
 	def create
 		# binding.pry
-		item = Item.new(item_params)
-		# item = Household.last.items.build(item_params)
-		if item.save
-			render json: item
+		@item = Item.new(item_params.except(:location))
+		@item.save
+		if item_params[:location].strip != ""
+			@item.locations.find_or_create_by(name: item_params[:location])
+		end 
+		if @item.save
+			render json: @item, status: :accepted
 		else
-			render json: {errors: item.errors.full_messages}
+			render json: { errors: @item.errors.full_messages }, status: :unprocessible_entity
 		end
 		# binding.pry
 	end

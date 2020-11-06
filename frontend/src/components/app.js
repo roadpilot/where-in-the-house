@@ -4,12 +4,14 @@ class App {
     this.index = this.index.bind(this);
     this.addItems = this.addItems.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleAddClick = this.handleAddClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   attachEventListeners() {
-    document.querySelector('#items-list').addEventListener('click', this.handleEditClick);
     document.querySelector('#update').addEventListener('submit', this.handleFormSubmit);
+    // document.querySelector('#items-list').addEventListener('click', this.handleEditClick);
+    document.querySelector('#items-list').addEventListener('click', this.handleAddClick);
   }
 
   index(items) {
@@ -25,6 +27,13 @@ class App {
     Item.all.forEach(
       item => (document.querySelector('#items-list').innerHTML += item.renderListItem())
     );
+  }
+
+  handleAddClick(e) {
+    const id = 0
+    const item = new Item({id:0,name:"",description:""});
+    document.querySelector('#update').innerHTML = item.renderUpdateForm();
+    document.getElementById('cancel').addEventListener('click', this.hideForm);
   }
 
   handleEditClick(e) {
@@ -44,8 +53,10 @@ class App {
     const location = document.getElementById('update-location').value;
 
     const bodyJSON = { name, description, location };
-    this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
-      const item = Item.findById(updatedItem.id);
+    this.api.createItem(item.id, bodyJSON).then(updatedItem => {
+    // this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
+// debugger
+      // const item = Item.findById(updatedItem.id);
       item.update(updatedItem);
       this.addItems();
       document.querySelector('#update').innerHTML = ""
