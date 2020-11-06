@@ -3,15 +3,16 @@ class App {
     this.api = new Api();
     this.index = this.index.bind(this);
     this.addItems = this.addItems.bind(this);
-    this.handleEditClick = this.handleEditClick.bind(this);
-    this.handleAddClick = this.handleAddClick.bind(this);
+    // this.handleEditClick = this.handleEditClick.bind(this);
+    // this.handleAddClick = this.handleAddClick.bind(this);
+    this.handleBtnClick = this.handleBtnClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   attachEventListeners() {
     document.querySelector('#update').addEventListener('submit', this.handleFormSubmit);
     // document.querySelector('#items-list').addEventListener('click', this.handleEditClick);
-    document.querySelector('#items-list').addEventListener('click', this.handleAddClick);
+    document.querySelector('#items-list').addEventListener('click', this.handleBtnClick);
   }
 
   index(items) {
@@ -29,11 +30,19 @@ class App {
     );
   }
 
-  handleAddClick(e) {
-    const id = 0
-    const item = new Item({id:0,name:"",description:""});
-    document.querySelector('#update').innerHTML = item.renderUpdateForm();
-    document.getElementById('cancel').addEventListener('click', this.hideForm);
+  handleBtnClick(e) {
+    if(e.target && e.target.dataset.type=='update'){
+      const id = parseInt(e.target.dataset.id);
+      const item = Item.findById(id);
+      document.querySelector('#update').innerHTML = item.renderUpdateForm();
+      document.getElementById('cancel').addEventListener('click', this.hideForm);
+    }
+    if(e.target && e.target.dataset.type=='create'){
+      const id = 0
+      const item = new Item({id:0,name:"",description:""});
+      document.querySelector('#update').innerHTML = item.renderUpdateForm();
+      document.getElementById('cancel').addEventListener('click', this.hideForm);
+    }
   }
 
   handleEditClick(e) {
