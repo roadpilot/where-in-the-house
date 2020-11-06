@@ -20,7 +20,7 @@ class Item {
         ${this.description}<br>`
       }
       detail_str += `Where it's been seen:<br>`
-      this.locations.forEach(location => detail_str += (location.name + "<br>"))
+      this.locations.slice().reverse().forEach(location => detail_str += (location.name + "<br>"))
       detail_str += `</details>`;
     return detail_str
   }
