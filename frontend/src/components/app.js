@@ -13,6 +13,8 @@ class App {
     document.querySelector('#update').addEventListener('submit', this.handleFormSubmit);
     // document.querySelector('#items-list').addEventListener('click', this.handleEditClick);
     document.querySelector('#items-list').addEventListener('click', this.handleBtnClick);
+    document.querySelector('#createBtn').addEventListener('click', this.handleBtnClick);
+    document.querySelector('#indexBtn').addEventListener('click', this.handleBtnClick);
   }
 
   index(items) {
@@ -37,11 +39,14 @@ class App {
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
-    if(e.target && e.target.dataset.type=='create'){
+    if(e.target && e.target.id=='createBtn'){
       const id = 0
       const item = new Item({id:0,name:"",description:""});
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
+    }
+    if(e.target && e.target.id=='indexBtn'){
+      alert(e.target)
     }
   }
 
