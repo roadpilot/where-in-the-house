@@ -4,7 +4,6 @@ class Item {
     this.name = data.name;
     this.description = data.description;
     this.locations = data.locations;
-    // debugger
     Item.all.unshift(this);
   }
 
@@ -58,7 +57,6 @@ class Item {
     this.description = description;
     this.locations = locations
   }
-
 
 }
 
