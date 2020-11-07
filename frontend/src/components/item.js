@@ -30,6 +30,10 @@ class Item {
   }
 
   renderUpdateForm() {
+    let optionStr = ""
+    Location.all.forEach(item => {
+      optionStr += `<option>${item.name}</option>`
+    })
     return `
     <form data-id=${this.id}>
       <label>Name
@@ -39,15 +43,14 @@ class Item {
         <textarea id='update-description'>${this.description}</textarea>
       </label><br>
       <label>Where are you putting it?<br>
-        <input list='locax' id='update-location' value="${this.locations[this.locations.length-1].name}">
-        <datalist id='locax'>
-        <option>in the garbage</option
-        </datalist>
+        <input autocomplete=off list='locax' id='update-location' value="${this.locations[this.locations.length-1].name}">
+        <datalist id='locax'>`
+        + optionStr +
+        `</datalist>
       </label><br>
       <button type='submit'>Save Item</button>
       <button type='button' id='cancel'>Cancel</button>
-    </form>
-  `;
+    </form>`
   }
 
   renderCreateForm() {

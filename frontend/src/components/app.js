@@ -22,6 +22,14 @@ class App {
     this.addItems();
   }
 
+  indexLocations(items) {
+    items.forEach(item => {
+      new Location(item);
+    });
+    // debugger
+    console.log(Location.all)
+  }
+
   addItems() {
     document.querySelector('#items-list').innerHTML = '';
     Item.all.forEach(
