@@ -29,7 +29,7 @@ class Item {
     return this.all.find(note => note.id === id);
   }
 
-  renderUpdateForm() {
+  renderForm() {
     let optionStr = ""
     Location.all.forEach(item => {
       optionStr += `<option>${item.name}</option>`

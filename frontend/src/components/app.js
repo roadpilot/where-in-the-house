@@ -39,13 +39,13 @@ class App {
       const id = parseInt(e.target.dataset.id);
       const item = Item.findById(id);
       document.querySelector('#items-list').style.display="none";
-      document.querySelector('#update').innerHTML = item.renderUpdateForm();
+      document.querySelector('#update').innerHTML = item.renderForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
     if(e.target && e.target.id=='createBtn'){
       const item = new Item({id:0,name:"",description:"",locations:[{name:""}]});
       document.querySelector('#items-list').style.display="none";
-      document.querySelector('#update').innerHTML = item.renderUpdateForm();
+      document.querySelector('#update').innerHTML = item.renderForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
     if(e.target && e.target.id=='indexBtn'){
