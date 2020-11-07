@@ -54,6 +54,7 @@ class App {
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
     const item = Item.findById(id);
+    // debugger
     const name = document.getElementById('update-name').value;
     const description = document.getElementById('update-description').value;
     const location = document.getElementById('update-location').value;
@@ -62,17 +63,29 @@ class App {
     }
     else{
     const bodyJSON = { name, description, location };
-    debugger
+    if (id==0){
+    // debugger
     this.api.createItem(item.id, bodyJSON).then(updatedItem => {
-    // this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
-// debugger
-      // const item = Item.findById(updatedItem.id);
+      new Item(updatedItem);
+      this.addItems();
+      document.querySelector('#update').innerHTML = ""
+      this.hideForm(e)
+      this.index
+    })
+
+    }
+    else{
+    this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
       item.update(updatedItem);
       this.addItems();
       document.querySelector('#update').innerHTML = ""
       this.hideForm(e)
       this.index
     })
+
+    }
+// debugger
+      // const item = Item.findById(updatedItem.id);
     }
   }
 
