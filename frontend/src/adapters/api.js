@@ -7,8 +7,8 @@ class Api {
     }
   }
 
-  fetchItems() {
-    return fetch(`${this.baseUrl}/items`).then(resp => resp.json())
+  fetchItems(type) {
+    return fetch(`${this.baseUrl}/${type}`).then(resp => resp.json())
   }
 
   updateItem(id, body) {
