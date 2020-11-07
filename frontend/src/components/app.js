@@ -15,6 +15,8 @@ class App {
   }
 
   index(items) {
+    document.querySelector('#indexBtn').disabled = true
+    document.querySelector('#createBtn').disabled = false
     items.forEach(item => {
       new Item(item);
     });
@@ -36,6 +38,8 @@ class App {
 
   handleBtnClick(e) {
     if(e.target && e.target.dataset.type=='update'){
+      document.querySelector('#indexBtn').disabled = false
+      document.querySelector('#createBtn').disabled = false
       const id = parseInt(e.target.dataset.id);
       const item = Item.findById(id);
       document.querySelector('#items-list').style.display="none";
@@ -43,6 +47,8 @@ class App {
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
     if(e.target && e.target.id=='createBtn'){
+      document.querySelector('#indexBtn').disabled = false
+      document.querySelector('#createBtn').disabled = true
       const item = new Item({id:0,name:"",description:"",locations:[{name:""}]});
       document.querySelector('#items-list').style.display="none";
       document.querySelector('#update').innerHTML = item.renderForm();
@@ -88,9 +94,11 @@ class App {
   }
 
   hideForm(e) {
-      e.preventDefault();
-      document.querySelector('#update').innerHTML = ""
-      document.querySelector('#items-list').style.display="";
+    e.preventDefault();
+    document.querySelector('#update').innerHTML = ""
+    document.querySelector('#items-list').style.display="";
+    document.querySelector('#indexBtn').disabled = true
+    document.querySelector('#createBtn').disabled = false
   }
 }
 
