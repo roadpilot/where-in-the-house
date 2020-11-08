@@ -8,3 +8,5 @@
 // }
 
 // Location.all = [];
+
+let locations=[]

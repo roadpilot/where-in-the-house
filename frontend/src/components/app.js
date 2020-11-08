@@ -57,7 +57,7 @@ class App {
     }
     if (e.target && e.target.id=='indexBtn'){
       this.hideForm(e)
-      this.index
+      this.index()
     }
   }
 
@@ -108,4 +108,3 @@ class App {
   }
 }
 
-let locations=[]
