@@ -52,12 +52,11 @@ class Item {
     </form>`
   }
 
-    update({ name, description, locations }) {
+    update({name, description, locations}) {
     this.name = name;
     this.description = description;
     this.locations = locations
   }
-
 }
 
 Item.all = [];

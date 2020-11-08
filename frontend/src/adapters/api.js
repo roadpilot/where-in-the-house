@@ -26,5 +26,4 @@ class Api {
       body: JSON.stringify(body),
     }).then(res => res.json())
   }
-
 }
