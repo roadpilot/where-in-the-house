@@ -37,7 +37,7 @@ class App {
   }
 
   handleBtnClick(e) {
-    if(e.target && e.target.dataset.type=='update'){
+    if (e.target && e.target.dataset.type=='update'){
       document.querySelector('#indexBtn').disabled = false
       document.querySelector('#createBtn').disabled = false
       const id = parseInt(e.target.dataset.id);
@@ -46,7 +46,7 @@ class App {
       document.querySelector('#update').innerHTML = item.renderForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
-    if(e.target && e.target.id=='createBtn'){
+    if (e.target && e.target.id=='createBtn'){
       document.querySelector('#indexBtn').disabled = false
       document.querySelector('#createBtn').disabled = true
       const item = new Item({id:0,name:"",description:"",locations:[{name:""}]});
@@ -54,7 +54,7 @@ class App {
       document.querySelector('#update').innerHTML = item.renderForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
-    if(e.target && e.target.id=='indexBtn'){
+    if (e.target && e.target.id=='indexBtn'){
       this.hideForm(e)
       this.index
     }
@@ -71,6 +71,9 @@ class App {
       alert("Location can't be blank")
     }
     else{
+      if (!!(Location.all.filter(e => (e.name === location)))){
+        new Location({name: location})
+      }
       const bodyJSON = { name, description, location };
       if (id==0){
         this.api.createItem(item.id, bodyJSON).then(updatedItem => {
