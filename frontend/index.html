@@ -3,20 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>WhereInTheHouse</title>
+    <link rel="stylesheet" href="assets/stylesheets/main.css" />
     <script src="src/components/app.js" charset="utf-8"></script>
     <script src="src/adapters/api.js" charset="utf-8"></script>
     <script src="src/components/item.js" charset="utf-8"></script>
     <script src="src/components/location.js" charset="utf-8"></script>
     <script src="src/index.js" charset="utf-8"></script>
   </head>
-  <div class="navigation" style="min-width:200px">
-    <input type="button" id="createBtn" value="Put stuff away...">
-    <!-- <input class="button" id="btn2"  value="Look for something..."> -->
-    <input type="button" id="indexBtn" value="Browse for stuff...">
+  <body background="blue">
+  <img src="assets/6585761-1.png" style="position:fixed; right: 10%; height:80%; z-index:-2">
+  <img src="assets/text.png" style="background: transparent;height:50%; position:fixed; top:10%; left:10%">
+  <img src="assets/5818457.png" style="background: transparent;height:50%; position:fixed; top:50%; left:0%; z-index:2;pointer-events:none;">
+  <img src="assets/7166228.png" style="background: transparent;height:50%; position:fixed; top:50%; right:0%; z-index:2;pointer-events:none;">
+  <div class="wrapper">
+    <div class="navigation">
+      <input type="button" id="createBtn" value="Put stuff away...">
+      <!-- <input class="button" id="btn2"  value="Look for something..."> -->
+      <input type="button" id="indexBtn" value="Browse for stuff...">
+    </div>
+    <div class="content shadow">
+      <div id='items-list'></div>
+      <div id='update'></div>
+    </div>
   </div>
-  <body>
-    <div id='items-list'></div>
-    <div id='update'></div>
-
-  </body>
+</body>
 </html>
