@@ -1,3 +1,99 @@
+/* body {
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+    Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: 300;
+  line-height: 1.6em;
+  font-size: 1.3em;
+}
+
+a {
+  color: #97659;
+}
+
+input {
+  font-size: 1.5em;
+}
+
+.container {
+  width: 960px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.delete-note-link {
+  color: red;
+}
+
+#editable {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+#notes-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 10px;
+} */
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    min-width: 300px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000533+0,2989d8+100,7db9e8+100 */
+background: #000533; /* Old browsers */
+background: -moz-linear-gradient(top,  #000533 0%, #2989d8 100%, #7db9e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #000533 0%,#2989d8 100%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #000533 0%,#2989d8 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000533', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+
+}
+.centered {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navigation {
+  position: fixed;
+  top: 50%;
+  left: 30%;
+  transform: translate3d(-50%, -50%, -50%);
+  z-index: 3;
+}
+
+ .square-box{width:600px;}
+ .square-box .top{background:url('http://i.imgur.com/KRjgdhP.jpg') no-repeat 0 0; height:27px; float:left; width:100%;}
+ .square-box .content{background:url('http://i.imgur.com/zjNrRfD.jpg') repeat-y 0 0; min-height:100px; padding:0 5%;  float:left; width:90%;}
+ .square-box .bottom{background:url('http://i.imgur.com/mOXsXSQ.jpg') no-repeat 0 0;  height:27px;  float:left; width:100%;}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+  border-radius:4%; /*supported by all latest Browser*/
+  -moz-border-radius:4%; /*For older Browser*/
+  -webkit-border-radius:4%;/*For older Browser*/
+  background-color:whitesmoke;
+  width:40%;
+  height:40%;
+  position: fixed;
+  top: 75%;
+}
+
+.content-div{
+  margin-left:20px;
+}
+
 html {
   height: 100%;
 }
@@ -177,7 +273,3 @@ details p {
   transform: translate(-50%, -50%);
 }
   </style>
-
-
-
-
