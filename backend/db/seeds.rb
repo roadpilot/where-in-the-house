@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
+# User.destroy_all
 # u1 = User.create(
 # username: Faker::Internet.username,
 # password: "pw" 
@@ -19,7 +19,7 @@ User.destroy_all
 # )
 # puts "Created user: #{u2.username}"
 
-Household.destroy_all
+# Household.destroy_all
 # h1 = Household.create()
 # puts "Created household_id: #{h1.id}"
 
