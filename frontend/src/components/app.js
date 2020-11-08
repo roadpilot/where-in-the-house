@@ -25,7 +25,8 @@ class App {
 
   indexLocations(items) {
     items.forEach(item => {
-      new Location(item);
+      // new Location(item);
+      locations.push(item.name)
     });
   }
 
@@ -71,8 +72,10 @@ class App {
       alert("Location can't be blank")
     }
     else{
-      if (!!(Location.all.filter(e => (e.name === location)))){
-        new Location({name: location})
+      // debugger
+      if (!locations.includes(location)){
+        // new Location({name: location})
+        locations.push(location)
       }
       const bodyJSON = { name, description, location };
       if (id==0){
@@ -105,3 +108,4 @@ class App {
   }
 }
 
+let locations=[]

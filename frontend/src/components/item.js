@@ -30,8 +30,8 @@ class Item {
 
   renderForm() {
     let optionStr = ""
-    Location.all.forEach(item => {
-      optionStr += `<option>${item.name}</option>`
+    locations.sort().forEach(location => {
+      optionStr += `<option>${location}</option>`
     })
     return `
     <form data-id=${this.id}>
