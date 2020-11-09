@@ -52,7 +52,8 @@ class Item {
     </form>`
   }
 
-    update({name, description, locations}) {
+    update({id, name, description, locations}) {
+    this.id = id;
     this.name = name;
     this.description = description;
     this.locations = locations

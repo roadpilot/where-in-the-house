@@ -80,22 +80,20 @@ class App {
       const bodyJSON = { name, description, location };
       if (id==0){
         this.api.createItem(item.id, bodyJSON).then(updatedItem => {
-        new Item(updatedItem);
+        item.update(updatedItem);
         this.addItems();
-        document.querySelector('#update').innerHTML = ""
-        this.hideForm(e)
-        this.index
         })
       }
       else{
         this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
         item.update(updatedItem);
         this.addItems();
-        document.querySelector('#update').innerHTML = ""
-        this.hideForm(e)
-        this.index
         })
       }
+              document.querySelector('#update').innerHTML = ""
+        this.hideForm(e)
+        this.index
+
     }
   }
 
