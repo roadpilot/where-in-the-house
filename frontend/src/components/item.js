@@ -35,7 +35,7 @@ class Item {
     })
     return `
     <form data-id=${this.id}>
-      <label>Name
+      <label>Name it!
         <input type="text" id='update-name' value="${this.name}" autocomplete="off">
       </label><br>
       <label>How would you describe it?<br>

@@ -57,7 +57,7 @@ class App {
     }
     if (e.target && e.target.id=='indexBtn'){
       this.hideForm(e)
-      this.index()
+      // this.index()
     }
   }
 
@@ -82,18 +82,21 @@ class App {
         this.api.createItem(item.id, bodyJSON).then(updatedItem => {
         item.update(updatedItem);
         this.addItems();
+        document.querySelector('#update').innerHTML = ""
+        this.hideForm(e)
+        this.index
         })
       }
       else{
         this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
         item.update(updatedItem);
         this.addItems();
-        })
-      }
-              document.querySelector('#update').innerHTML = ""
+        document.querySelector('#update').innerHTML = ""
         this.hideForm(e)
         this.index
-
+        })
+      }
+ 
     }
   }
 
