@@ -4,7 +4,7 @@ html {
 body {
     height: 100%;
     margin: 0;
-    min-width: 1200px;
+    /* min-width: 1200px; */
     background-repeat: no-repeat;
     background-attachment: fixed;
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000533+0,2989d8+100,7db9e8+100 */
@@ -14,7 +14,9 @@ background: -webkit-linear-gradient(top,  #000533 0%,#2989d8 100%,#7db9e8 100%);
 background: linear-gradient(to bottom,  #000533 0%,#2989d8 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000533', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 
-}body,button,textarea,input[type="text"] {
+}
+
+body,button,textarea,input[type="text"] {
   font: menu;
   font-size: 1rem;
   line-height: 1.4;
