@@ -1,8 +1,9 @@
 class App {
   constructor() {
     this.api = new Api();
-    this.index = this.index.bind(this);
     this.addItems = this.addItems.bind(this);
+    this.addLocations = this.addLocations.bind(this);
+    this.indexItems = this.indexItems.bind(this);
     this.handleBtnClick = this.handleBtnClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
@@ -14,23 +15,23 @@ class App {
     document.querySelector('#indexBtn').addEventListener('click', this.handleBtnClick);
   }
 
-  index(items) {
-    document.querySelector('#indexBtn').disabled = true
-    document.querySelector('#createBtn').disabled = false
+  addItems(items) {
     items.forEach(item => {
       new Item(item);
     });
-    this.addItems();
+    this.indexItems();
   }
 
-  indexLocations(items) {
+  addLocations(items) {
     items.forEach(item => {
       // new Location(item);
       locations.push(item.name)
     });
   }
 
-  addItems() {
+  indexItems() {
+    document.querySelector('#indexBtn').disabled = true
+    document.querySelector('#createBtn').disabled = false
     document.querySelector('#items-list').innerHTML = '';
     Item.all.forEach(
       item => (document.querySelector('#items-list').innerHTML += item.renderListItem())
