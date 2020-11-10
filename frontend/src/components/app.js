@@ -48,7 +48,7 @@ class App {
       document.querySelector('#update').innerHTML = item.renderForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
-    if (e.target && e.target.id=='createBtn'){
+    else if (e.target && e.target.id=='createBtn'){
       document.querySelector('#indexBtn').disabled = false
       document.querySelector('#createBtn').disabled = true
       const item = new Item({id:0,name:"",description:"",locations:[{name:""}]});
@@ -56,7 +56,7 @@ class App {
       document.querySelector('#update').innerHTML = item.renderForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
     }
-    if (e.target && e.target.id=='indexBtn'){
+    else if (e.target && e.target.id=='indexBtn'){
       this.hideForm(e)
       // this.index()
     }
