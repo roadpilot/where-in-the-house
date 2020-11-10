@@ -18,7 +18,7 @@ class Item {
         `It's been described as:<br>
         ${this.description}<br>`
       }
-      detail_str += `Where it's been seen:<br>`
+      detail_str += `Where you might find it:<br>`
       this.locations.slice().reverse().forEach(location => detail_str += ("➡" + location.name + "<br>"))
       detail_str += `</details>`;
     return detail_str
