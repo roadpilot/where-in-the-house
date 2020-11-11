@@ -51,7 +51,13 @@ class App {
     else if (e.target && e.target.id=='createBtn'){
       document.querySelector('#indexBtn').disabled = false
       document.querySelector('#createBtn').disabled = true
-      const item = new Item({id:0,name:"",description:"",locations:[{name:""}]});
+      let item = null
+      if (!Item.findById(0)){
+        item = new Item({id:0,name:"",description:"",locations:[{name:""}]});
+      }
+      else{
+        item = Item.findById(0)
+      }
       document.querySelector('#items-list').style.display="none";
       document.querySelector('#update').innerHTML = item.renderForm();
       document.getElementById('cancel').addEventListener('click', this.hideForm);
@@ -79,30 +85,29 @@ class App {
         locations.push(location)
       }
       const bodyJSON = { name, description, location };
-      if (id==0){
+      // if (id==0){
         this.api.createItem(item.id, bodyJSON).then(updatedItem => {
         item.update(updatedItem);
-        this.addItems();
-        document.querySelector('#update').innerHTML = ""
+        this.indexItems();
         this.hideForm(e)
-        this.index
         })
-      }
-      else{
-        this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
-        item.update(updatedItem);
-        this.addItems();
-        document.querySelector('#update').innerHTML = ""
-        this.hideForm(e)
-        this.index
-        })
-      }
- 
+      // }
+      // else{
+      //   this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
+      //   item.update(updatedItem);
+      //   this.indexItems();
+      //   this.hideForm(e)
+      //   // document.querySelector('#update').innerHTML = ""
+      //   })
+      // }
     }
   }
 
   hideForm(e) {
     e.preventDefault();
+    if (!!Item.findById(0)){
+      Item.all.shift()
+    }
     document.querySelector('#update').innerHTML = ""
     document.querySelector('#items-list').style.display="";
     document.querySelector('#indexBtn').disabled = true
