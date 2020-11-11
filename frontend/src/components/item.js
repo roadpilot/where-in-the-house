@@ -25,7 +25,7 @@ class Item {
   }
 
   static findById(id) {
-    return this.all.find(note => note.id === id);
+    return this.all.find(item => item.id === id);
   }
 
   renderForm() {
