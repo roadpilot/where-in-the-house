@@ -85,21 +85,20 @@ class App {
         locations.push(location)
       }
       const bodyJSON = { name, description, location };
-      // if (id==0){
+      if (id==0){
         this.api.createItem(item.id, bodyJSON).then(updatedItem => {
         item.update(updatedItem);
         this.indexItems();
         this.hideForm(e)
         })
-      // }
-      // else{
-      //   this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
-      //   item.update(updatedItem);
-      //   this.indexItems();
-      //   this.hideForm(e)
-      //   // document.querySelector('#update').innerHTML = ""
-      //   })
-      // }
+      }
+      else{
+        this.api.updateItem(item.id, bodyJSON).then(updatedItem => {
+        item.update(updatedItem);
+        this.indexItems();
+        this.hideForm(e)
+        })
+      }
     }
   }
 
