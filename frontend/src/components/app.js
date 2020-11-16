@@ -33,10 +33,29 @@ class App {
     document.querySelector('#indexBtn').disabled = true
     document.querySelector('#createBtn').disabled = false
     document.querySelector('#items-list').innerHTML = '';
-    Item.all.forEach(
+    console.log(Item.all) //to see the original sort
+    let temp  = [...Item.all]; //so that my temp manipulation wouldn't change my Item.all.
+    temp.sort(function(a, b) {
+      var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+    return 0;
+    }).reverse();
+    console.log(temp)
+    temp.forEach(
       item => (document.querySelector('#items-list').innerHTML += item.renderListItem())
     );
   }
+
+  sortItemsAlpha(){
+    
+  }
+
 
   handleBtnClick(e) {
     if (e.target && e.target.dataset.type=='update'){
